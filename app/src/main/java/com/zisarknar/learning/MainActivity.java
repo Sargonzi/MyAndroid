@@ -1,5 +1,6 @@
 package com.zisarknar.learning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -52,8 +53,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
+        if (id == R.id.menu_one) {
+            gotoRecycler();
+        }
         drawerLayout.closeDrawer(Gravity.START);
         return true;
+    }
+
+    private void gotoRecycler() {
+        Intent intent = new Intent(this, RecyclerActivity.class);
+        startActivity(intent);
     }
 
     @Override
